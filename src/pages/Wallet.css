@@ -1,0 +1,500 @@
+/* ===================================== */
+/* ===== WALLET PAGE ===== */
+/* ===================================== */
+
+.walletPage{
+
+  width:100%;
+
+  min-height:100vh;
+
+  padding:50px 20px;
+
+  background:
+
+  linear-gradient(
+    135deg,
+    #eef2ff,
+    #f8fafc,
+    #dbeafe
+  );
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:flex-start;
+}
+
+/* ===================================== */
+/* ===== CONTAINER ===== */
+/* ===================================== */
+
+.walletContainer{
+
+  width:100%;
+
+  max-width:950px;
+}
+
+/* ===================================== */
+/* ===== WALLET CARD ===== */
+/* ===================================== */
+
+.walletCard{
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:
+
+  linear-gradient(
+    135deg,
+    #1d4ed8,
+    #2563eb,
+    #1e40af
+  );
+
+  border-radius:34px;
+
+  padding:40px;
+
+  color:white;
+
+  box-shadow:
+
+  0 25px 60px
+  rgba(37,99,235,0.35);
+
+  margin-bottom:40px;
+}
+
+/* ===================================== */
+/* ===== GLOW EFFECT ===== */
+/* ===================================== */
+
+.walletCard::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:300px;
+
+  height:300px;
+
+  background:
+
+  rgba(255,255,255,0.08);
+
+  border-radius:50%;
+
+  top:-100px;
+
+  right:-100px;
+}
+
+.walletCard::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:220px;
+
+  height:220px;
+
+  background:
+
+  rgba(255,255,255,0.05);
+
+  border-radius:50%;
+
+  bottom:-80px;
+
+  left:-60px;
+}
+
+/* ===================================== */
+/* ===== TOP ===== */
+/* ===================================== */
+
+.walletTop{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:35px;
+
+  position:relative;
+
+  z-index:2;
+}
+
+.walletLabel{
+
+  font-size:17px;
+
+  opacity:0.9;
+
+  margin-bottom:12px;
+
+  font-weight:500;
+}
+
+.walletTop h1{
+
+  font-size:64px;
+
+  font-weight:900;
+
+  letter-spacing:1px;
+}
+
+/* ===================================== */
+/* ===== ICON ===== */
+/* ===================================== */
+
+.walletIcon{
+
+  width:95px;
+
+  height:95px;
+
+  border-radius:24px;
+
+  background:
+
+  rgba(255,255,255,0.15);
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  font-size:42px;
+
+  backdrop-filter:blur(12px);
+
+  box-shadow:
+
+  0 8px 20px
+  rgba(255,255,255,0.12);
+
+  z-index:2;
+}
+
+/* ===================================== */
+/* ===== BOTTOM ===== */
+/* ===================================== */
+
+.walletBottom{
+
+  display:flex;
+
+  gap:18px;
+
+  flex-wrap:wrap;
+
+  margin-bottom:35px;
+
+  position:relative;
+
+  z-index:2;
+}
+
+.walletInfo{
+
+  background:
+
+  rgba(255,255,255,0.12);
+
+  border:1px solid
+  rgba(255,255,255,0.12);
+
+  padding:15px 20px;
+
+  border-radius:16px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  font-size:15px;
+
+  font-weight:500;
+
+  backdrop-filter:blur(12px);
+}
+
+/* ===================================== */
+/* ===== BUTTONS ===== */
+/* ===================================== */
+
+.walletButtons{
+
+  display:flex;
+
+  gap:18px;
+
+  flex-wrap:wrap;
+
+  position:relative;
+
+  z-index:2;
+}
+
+.walletBtn{
+
+  border:none;
+
+  padding:15px 28px;
+
+  border-radius:16px;
+
+  font-size:15px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:10px;
+
+  transition:0.3s;
+}
+
+.walletBtn:hover{
+
+  transform:
+
+  translateY(-4px)
+  scale(1.02);
+}
+
+/* ===================================== */
+/* ===== ADD BUTTON ===== */
+/* ===================================== */
+
+.addBtn{
+
+  background:white;
+
+  color:#2563eb;
+
+  box-shadow:
+
+  0 10px 20px
+  rgba(255,255,255,0.2);
+}
+
+/* ===================================== */
+/* ===== WITHDRAW BUTTON ===== */
+/* ===================================== */
+
+.withdrawBtn{
+
+  background:#111827;
+
+  color:white;
+
+  box-shadow:
+
+  0 10px 20px
+  rgba(0,0,0,0.25);
+}
+
+/* ===================================== */
+/* ===== OFFERS ===== */
+/* ===================================== */
+
+.walletOffers h2{
+
+  font-size:38px;
+
+  margin-bottom:28px;
+
+  color:#111827;
+
+  font-weight:900;
+}
+
+/* ===================================== */
+/* ===== OFFER CARD ===== */
+/* ===================================== */
+
+.offerCard{
+
+  background:white;
+
+  border-radius:24px;
+
+  padding:28px;
+
+  margin-bottom:20px;
+
+  box-shadow:
+
+  0 10px 30px
+  rgba(0,0,0,0.08);
+
+  transition:0.3s;
+
+  border:1px solid
+  rgba(0,0,0,0.04);
+}
+
+.offerCard:hover{
+
+  transform:translateY(-6px);
+
+  box-shadow:
+
+  0 18px 40px
+  rgba(0,0,0,0.12);
+}
+
+.offerCard h3{
+
+  font-size:24px;
+
+  margin-bottom:12px;
+
+  color:#2563eb;
+
+  font-weight:800;
+}
+
+.offerCard p{
+
+  font-size:15px;
+
+  color:#4b5563;
+
+  line-height:1.8;
+}
+
+/* ===================================== */
+/* ===== DARK MODE ===== */
+/* ===================================== */
+
+.dark .walletPage{
+
+  background:
+
+  linear-gradient(
+    135deg,
+    #020617,
+    #0f172a,
+    #111827
+  );
+}
+
+.dark .walletOffers h2{
+
+  color:white;
+}
+
+.dark .offerCard{
+
+  background:#1e293b;
+
+  border:1px solid
+  rgba(255,255,255,0.05);
+}
+
+.dark .offerCard p{
+
+  color:#cbd5e1;
+}
+
+.dark .offerCard h3{
+
+  color:#60a5fa;
+}
+
+/* ===================================== */
+/* ===== MOBILE ===== */
+/* ===================================== */
+
+@media(max-width:768px){
+
+  .walletPage{
+
+    padding:25px 14px;
+  }
+
+  .walletCard{
+
+    padding:28px;
+
+    border-radius:26px;
+  }
+
+  .walletTop{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:20px;
+  }
+
+  .walletTop h1{
+
+    font-size:48px;
+  }
+
+  .walletIcon{
+
+    width:80px;
+
+    height:80px;
+
+    font-size:34px;
+  }
+
+  .walletBottom{
+
+    flex-direction:column;
+
+    gap:14px;
+  }
+
+  .walletButtons{
+
+    flex-direction:column;
+  }
+
+  .walletBtn{
+
+    width:100%;
+  }
+
+  .walletOffers h2{
+
+    font-size:30px;
+  }
+
+  .offerCard{
+
+    padding:22px;
+  }
+
+  .offerCard h3{
+
+    font-size:20px;
+  }
+}

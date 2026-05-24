@@ -1,13 +1,530 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html{
+  scroll-behavior:smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ===================================== */
+/* ===== GLOBAL RESET ===== */
+/* ===================================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:#eaeded;
+
+  overflow-x:hidden;
+
+  transition:0.3s;
+
+  font-family:'Poppins', sans-serif;
+}
+
+/* ===================================== */
+/* ===== CODE FONT ===== */
+/* ===================================== */
+
+code{
+  font-family:
+  source-code-pro,
+  Menlo,
+  Monaco,
+  Consolas,
+  'Courier New',
+  monospace;
+}
+
+/* ===================================== */
+/* ===== IMAGE ===== */
+/* ===================================== */
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+/* ===================================== */
+/* ===== INPUT ===== */
+/* ===================================== */
+
+input{
+  outline:none;
+  border:none;
+
+  font-family:'Poppins', sans-serif;
+}
+
+/* ===================================== */
+/* ===== BUTTON ===== */
+/* ===================================== */
+
+button{
+  border:none;
+
+  cursor:pointer;
+
+  font-family:'Poppins', sans-serif;
+
+  transition:0.3s;
+}
+
+/* ===================================== */
+/* ===== LINKS ===== */
+/* ===================================== */
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* ===================================== */
+/* ===== LIST ===== */
+/* ===================================== */
+
+ul{
+  list-style:none;
+}
+
+/* ===================================== */
+/* ===== HEADINGS ===== */
+/* ===================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+  margin:0;
+}
+
+/* ===================================== */
+/* ===== SCROLLBAR ===== */
+/* ===================================== */
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#9ca3af;
+
+  border-radius:20px;
+}
+
+.dark ::-webkit-scrollbar-thumb{
+  background:#374151;
+}
+
+/* ===================================== */
+/* ===== DARK MODE ===== */
+/* ===================================== */
+
+.dark{
+
+  background:#111827 !important;
+
+  min-height:100vh;
+
+  transition:0.3s;
+}
+
+/* ===================================== */
+/* ===== PAGE BACKGROUND ===== */
+/* ===================================== */
+
+.dark .home,
+.dark .categoryPage,
+.dark .detailsPage,
+.dark .wishlistPage,
+.dark .profilePage,
+.dark .cartPage,
+.dark .walletPage,
+.dark .loginPage{
+
+  background:#111827 !important;
+}
+
+/* ===================================== */
+/* ===== UNIVERSAL DARK FIX ===== */
+/* ===================================== */
+
+.dark section,
+.dark main{
+
+  background-color:inherit;
+}
+
+/* ===================================== */
+/* ===== CARDS ===== */
+/* ===================================== */
+
+.dark .card,
+.dark .productCard,
+.dark .categoryCard,
+.dark .wishlistCard,
+.dark .cartCard,
+.dark .profileCard,
+.dark .detailsCard,
+.dark .reviewCard,
+.dark .relatedCard,
+.dark .loginBox{
+
+  background:#1f2937 !important;
+
+  color:white !important;
+
+  border:1px solid #374151;
+
+  border-radius:12px;
+}
+
+/* ===================================== */
+/* ===== TEXT ===== */
+/* ===================================== */
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark p,
+.dark span,
+.dark strong{
+
+  color:white !important;
+}
+
+/* ===================================== */
+/* ===== INPUT ===== */
+/* ===================================== */
+
+.dark input{
+
+  background:#374151 !important;
+
+  color:white !important;
+
+  border:none;
+}
+
+.dark input::placeholder{
+
+  color:#d1d5db;
+}
+
+/* ===================================== */
+/* ===== NAVBAR ===== */
+/* ===================================== */
+
+.dark .navbar{
+
+  background:
+  linear-gradient(
+    to right,
+    #000000,
+    #111827
+  ) !important;
+}
+
+/* ===================================== */
+/* ===== SEARCH BOX ===== */
+/* ===================================== */
+
+.dark .searchBox{
+
+  background:#1f2937;
+}
+
+/* ===================================== */
+/* ===== BUTTONS ===== */
+/* ===================================== */
+
+.dark .categoryBtn,
+.dark .detailsBtn,
+.dark .relatedBtn,
+.dark .cartBtn,
+.dark .buyBtn,
+.dark .logoutBtn,
+.dark .continueBtn{
+
+  background:#2563eb !important;
+
+  color:white !important;
+
+  border-radius:8px;
+
+  transition:0.3s;
+}
+
+.dark .categoryBtn:hover,
+.dark .detailsBtn:hover,
+.dark .relatedBtn:hover,
+.dark .cartBtn:hover,
+.dark .buyBtn:hover{
+
+  background:#1d4ed8 !important;
+}
+
+/* ===================================== */
+/* ===== PRICE ===== */
+/* ===================================== */
+
+.dark .price,
+.dark .productPrice,
+.dark .categoryPrice,
+.dark .relatedPrice,
+.dark .wishlistPrice,
+.dark .cartTotal,
+.dark .totalPrice,
+.dark .detailsInfo h2{
+
+  color:#22c55e !important;
+
+  font-weight:600;
+}
+
+/* ===================================== */
+/* ===== MRP ===== */
+/* ===================================== */
+
+.dark .mrp,
+.dark .productMrp,
+.dark .categoryMrp{
+
+  color:#9ca3af !important;
+}
+
+/* ===================================== */
+/* ===== OFFER ===== */
+/* ===================================== */
+
+.dark .offer,
+.dark .categoryOffer,
+.dark .detailsOffer{
+
+  color:#22c55e !important;
+
+  font-weight:500;
+}
+
+/* ===================================== */
+/* ===== RATING ===== */
+/* ===================================== */
+
+.dark .rating,
+.dark .productRating,
+.dark .categoryRating,
+.dark .detailsRating,
+.dark .reviewRating{
+
+  color:#facc15 !important;
+}
+
+/* ===================================== */
+/* ===== REVIEW ===== */
+/* ===================================== */
+
+.dark .reviewCard p{
+
+  color:#d1d5db !important;
+}
+
+/* ===================================== */
+/* ===== CART COUNT ===== */
+/* ===================================== */
+
+.dark .cartCount{
+
+  background:red;
+
+  color:white !important;
+}
+
+/* ===================================== */
+/* ===== REMOVE BUTTON ===== */
+/* ===================================== */
+
+.dark .removeBtn{
+
+  background:#dc2626 !important;
+
+  color:white !important;
+
+  border-radius:8px;
+}
+
+/* ===================================== */
+/* ===== QUANTITY BUTTON ===== */
+/* ===================================== */
+
+.dark .qtyBtn{
+
+  background:#374151 !important;
+
+  color:white !important;
+
+  border-radius:6px;
+}
+
+/* ===================================== */
+/* ===== PRODUCT TEXT FIX ===== */
+/* ===================================== */
+
+.dark .categoryCard h3,
+.dark .relatedCard h3,
+.dark .wishlistCard h2,
+.dark .detailsInfo h1,
+.dark .reviewCard h3{
+
+  color:white !important;
+}
+
+/* ===================================== */
+/* ===== POPUP ===== */
+/* ===================================== */
+
+.popup{
+
+  position:fixed;
+
+  top:25px;
+
+  right:25px;
+
+  background:#16a34a !important;
+
+  color:white !important;
+
+  padding:16px 28px;
+
+  border-radius:12px;
+
+  font-size:16px;
+
+  font-weight:700;
+
+  z-index:99999;
+
+  box-shadow:
+  0 8px 25px rgba(0,0,0,0.2);
+
+  animation:popupShow 0.3s ease;
+}
+
+/* ===== POPUP ANIMATION ===== */
+
+@keyframes popupShow{
+
+  from{
+
+    opacity:0;
+
+    transform:
+    translateY(-20px);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+  }
+}
+
+/* ===================================== */
+/* ===== LOGO ===== */
+/* ===================================== */
+
+.logo{
+
+  font-size:28px;
+
+  font-weight:700;
+
+  letter-spacing:1px;
+}
+
+/* ===================================== */
+/* ===== NAV LINKS ===== */
+/* ===================================== */
+
+.nav-links{
+
+  font-weight:500;
+}
+
+/* ===================================== */
+/* ===== PRODUCT CARD ===== */
+/* ===================================== */
+
+.product-card h3{
+
+  font-weight:600;
+}
+
+.product-card p{
+
+  font-size:14px;
+}
+/* ===================================== */
+/* ===== LOGIN PAGE TEXT FIX ===== */
+/* ===================================== */
+
+.dark .loginPage h1,
+.dark .loginPage h2,
+.dark .loginPage h3,
+.dark .loginPage p,
+.dark .loginPage label{
+
+  color:white !important;
+}
+
+/* ===================================== */
+/* ===== WISHLIST TEXT FIX ===== */
+/* ===================================== */
+
+.dark .wishlistPage h1,
+.dark .wishlistPage h2,
+.dark .wishlistPage h3,
+.dark .wishlistPage p,
+.dark .wishlistCard h2,
+.dark .wishlistCard p{
+
+  color:white !important;
+}
+
+/* ===================================== */
+/* ===== CART TEXT FIX ===== */
+/* ===================================== */
+
+.dark .cartPage h1,
+.dark .cartPage h2,
+.dark .cartPage h3,
+.dark .cartPage p,
+.dark .cartName,
+.dark .cartPrice,
+.dark .summaryRow,
+.dark .totalRow{
+
+  color:white !important;
+}
+
+/* ===================================== */
+/* ===== PROFILE TEXT FIX ===== */
+/* ===================================== */
+
+.dark .profilePage h1,
+.dark .profilePage h2,
+.dark .profilePage h3,
+.dark .profilePage p{
+
+  color:white !important;
 }

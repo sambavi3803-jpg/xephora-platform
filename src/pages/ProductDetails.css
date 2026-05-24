@@ -1,0 +1,938 @@
+/* src/pages/ProductDetails.css */
+
+/* ===================================== */
+/* ===== PAGE ===== */
+/* ===================================== */
+
+.detailsPage{
+
+  width:100%;
+
+  min-height:100vh;
+
+  padding:30px 20px 60px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f8fafc,
+    #eef2ff
+  );
+}
+
+/* ===================================== */
+/* ===== MAIN CARD ===== */
+/* ===================================== */
+
+.detailsCard{
+
+  width:100%;
+
+  background:white;
+
+  border-radius:28px;
+
+  padding:28px;
+
+  display:flex;
+
+  gap:40px;
+
+  align-items:flex-start;
+
+  box-shadow:
+  0 10px 25px rgba(0,0,0,0.08);
+
+  margin-bottom:40px;
+}
+
+/* ===================================== */
+/* ===== IMAGE SECTION ===== */
+/* ===================================== */
+
+.detailsImageSection{
+
+  flex:1;
+
+  position:sticky;
+
+  top:110px;
+}
+
+/* ===================================== */
+/* ===== IMAGE BOX ===== */
+/* ===================================== */
+
+.detailsImage{
+
+  width:100%;
+
+  min-height:650px;
+
+  background:#f8fafc;
+
+  border-radius:24px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:20px;
+
+  overflow:hidden;
+
+  position:relative;
+
+  padding:20px;
+}
+
+/* ===================================== */
+/* ===== THUMBNAILS ===== */
+/* ===================================== */
+
+.thumbnailColumn{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:16px;
+
+  z-index:10;
+}
+
+.thumbnailColumn img{
+
+  width:90px;
+
+  height:90px;
+
+  object-fit:cover;
+
+  border-radius:16px;
+
+  cursor:pointer;
+
+  border:
+  3px solid transparent;
+
+  background:white;
+
+  transition:
+  transform 0.3s ease,
+  opacity 0.3s ease;
+
+  padding:4px;
+
+  opacity:0.95;
+}
+
+.thumbnailColumn img:hover{
+
+  transform:scale(1.05);
+
+  border-color:#2563eb;
+
+  opacity:1;
+}
+
+.activeThumb{
+
+  border-color:#2563eb !important;
+}
+
+/* ===================================== */
+/* ===== IMAGE GLOW ===== */
+/* ===================================== */
+
+.imageBg{
+
+  position:absolute;
+
+  width:420px;
+
+  height:420px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(37,99,235,0.18),
+    transparent 70%
+  );
+
+  top:50%;
+
+  left:50%;
+
+  transform:
+  translate(-50%,-50%);
+}
+
+/* ===================================== */
+/* ===== MAIN IMAGE ===== */
+/* ===================================== */
+
+.zoomImage{
+
+  flex:1;
+
+  max-width:520px;
+
+  height:520px;
+
+  object-fit:contain;
+
+  transition:
+  transform 0.4s ease,
+  opacity 0.4s ease;
+
+  z-index:2;
+
+  opacity:0.97;
+
+  will-change:
+  transform,
+  opacity;
+}
+
+.zoomImage:hover{
+
+  transform:scale(1.08);
+
+  opacity:1;
+}
+
+/* ===================================== */
+/* ===== INFO ===== */
+/* ===================================== */
+
+.detailsInfo{
+
+  flex:1.1;
+}
+
+.brandName{
+
+  color:#2563eb;
+
+  font-size:20px;
+
+  font-weight:700;
+
+  margin-bottom:12px;
+}
+
+.detailsInfo h1{
+
+  font-size:52px;
+
+  line-height:1.2;
+
+  color:#111827;
+
+  margin-bottom:18px;
+
+  font-weight:900;
+}
+
+.detailsRating{
+
+  color:#f59e0b;
+
+  font-size:22px;
+
+  font-weight:700;
+
+  margin-bottom:24px;
+}
+
+/* ===================================== */
+/* ===== PRICE ===== */
+/* ===================================== */
+
+.priceBox{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:18px;
+
+  margin-bottom:20px;
+}
+
+.priceBox h2{
+
+  font-size:60px;
+
+  color:#111827;
+
+  font-weight:900;
+}
+
+.priceBox span{
+
+  color:#64748b;
+
+  font-size:30px;
+
+  text-decoration:line-through;
+}
+
+.detailsOffer{
+
+  color:#16a34a;
+
+  font-size:28px;
+
+  font-weight:900;
+
+  margin-bottom:20px;
+}
+
+.stock{
+
+  color:#16a34a;
+
+  font-size:20px;
+
+  font-weight:700;
+
+  margin-bottom:10px;
+}
+
+.delivery{
+
+  color:#2563eb;
+
+  font-size:20px;
+
+  font-weight:700;
+
+  margin-bottom:18px;
+}
+
+/* ===================================== */
+/* ===== PINCODE ===== */
+/* ===================================== */
+
+.pincodeBox{
+
+  display:flex;
+
+  gap:14px;
+
+  margin-bottom:18px;
+}
+
+.pincodeBox input{
+
+  flex:1;
+
+  height:56px;
+
+  border:
+  2px solid #e2e8f0;
+
+  border-radius:16px;
+
+  padding:0 18px;
+
+  font-size:16px;
+
+  outline:none;
+}
+
+.pincodeBox button{
+
+  width:140px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
+
+  color:white;
+
+  font-size:16px;
+
+  font-weight:800;
+
+  cursor:pointer;
+}
+
+.deliveryResult{
+
+  color:#16a34a;
+
+  font-size:18px;
+
+  font-weight:700;
+
+  margin-bottom:20px;
+}
+
+/* ===================================== */
+/* ===== DESCRIPTION ===== */
+/* ===================================== */
+
+.detailsDesc{
+
+  color:#475569;
+
+  line-height:1.9;
+
+  font-size:18px;
+
+  margin-bottom:30px;
+}
+
+/* ===================================== */
+/* ===== SIZE ===== */
+/* ===================================== */
+
+.selectSection{
+
+  margin-bottom:30px;
+}
+
+.selectSection h3{
+
+  font-size:22px;
+
+  margin-bottom:16px;
+
+  color:#111827;
+}
+
+.sizeOptions{
+
+  display:flex;
+
+  gap:14px;
+
+  flex-wrap:wrap;
+}
+
+.sizeOptions span{
+
+  width:60px;
+
+  height:60px;
+
+  border-radius:16px;
+
+  background:#f1f5f9;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:18px;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.activeSize{
+
+  background:#2563eb !important;
+
+  color:white;
+}
+
+/* ===================================== */
+/* ===== QUANTITY ===== */
+/* ===================================== */
+
+.qtyBox{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:16px;
+
+  margin-bottom:30px;
+}
+
+.qtyBox button{
+
+  width:52px;
+
+  height:52px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:#2563eb;
+
+  color:white;
+
+  font-size:24px;
+
+  font-weight:700;
+
+  cursor:pointer;
+}
+
+.qtyBox span{
+
+  font-size:30px;
+
+  font-weight:800;
+}
+
+/* ===================================== */
+/* ===== BUTTONS ===== */
+/* ===================================== */
+
+.buttonGroup{
+
+  display:flex;
+
+  gap:18px;
+
+  margin-bottom:34px;
+}
+
+.detailsBtn{
+
+  flex:1;
+
+  height:60px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:#ff9900;
+
+  color:white;
+
+  font-size:18px;
+
+  font-weight:800;
+
+  cursor:pointer;
+}
+
+.buyBtn{
+
+  flex:1;
+
+  height:60px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:#2563eb;
+
+  color:white;
+
+  font-size:18px;
+
+  font-weight:800;
+
+  cursor:pointer;
+}
+
+/* ===================================== */
+/* ===== EXTRA INFO ===== */
+/* ===================================== */
+
+.extraInfo{
+
+  background:#f8fafc;
+
+  padding:22px;
+
+  border-radius:18px;
+}
+
+.extraInfo p{
+
+  margin-bottom:12px;
+
+  color:#111827;
+
+  font-weight:600;
+}
+
+/* ===================================== */
+/* ===== REVIEWS ===== */
+/* ===================================== */
+
+.reviewsSection{
+
+  margin-top:20px;
+
+  margin-bottom:50px;
+}
+
+.reviewTitle{
+
+  font-size:40px;
+
+  color:#111827;
+
+  margin-bottom:24px;
+
+  font-weight:900;
+}
+
+.reviewGrid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(300px,1fr));
+
+  gap:20px;
+}
+
+.reviewCard{
+
+  background:white;
+
+  border-radius:22px;
+
+  padding:24px;
+
+  box-shadow:
+  0 8px 22px rgba(0,0,0,0.08);
+}
+
+.reviewCard h3{
+
+  font-size:24px;
+
+  margin-bottom:10px;
+
+  color:#111827;
+}
+
+.reviewRating{
+
+  color:#f59e0b;
+
+  margin-bottom:14px;
+
+  font-size:20px;
+}
+
+.reviewCard p{
+
+  color:#475569;
+
+  line-height:1.7;
+}
+
+/* ===================================== */
+/* ===== RELATED ===== */
+/* ===================================== */
+
+.relatedSection{
+
+  margin-top:40px;
+}
+
+.relatedTitle{
+
+  font-size:38px;
+
+  color:#111827;
+
+  margin-bottom:24px;
+
+  font-weight:900;
+}
+
+.relatedProducts{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+
+  gap:20px;
+
+  width:100%;
+}
+
+.relatedCard{
+
+  background:white;
+
+  border-radius:20px;
+
+  padding:14px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+  box-shadow:
+  0 6px 18px rgba(0,0,0,0.08);
+
+  overflow:hidden;
+}
+
+.relatedCard:hover{
+
+  transform:translateY(-6px);
+
+  box-shadow:
+  0 14px 28px rgba(0,0,0,0.14);
+}
+
+.relatedCard img{
+
+  width:100%;
+
+  height:220px;
+
+  object-fit:cover;
+
+  border-radius:16px;
+
+  margin-bottom:14px;
+
+  transition:
+  transform 0.3s ease,
+  opacity 0.3s ease;
+
+  opacity:0.96;
+}
+
+.relatedCard:hover img{
+
+  transform:scale(1.04);
+
+  opacity:1;
+}
+
+.relatedCard h3{
+
+  font-size:19px;
+
+  color:#111827;
+
+  margin-bottom:10px;
+
+  font-weight:800;
+
+  line-height:1.4;
+
+  min-height:54px;
+}
+
+.relatedPrice{
+
+  font-size:28px;
+
+  font-weight:900;
+
+  color:#2563eb;
+}
+
+.noRelated{
+
+  color:#64748b;
+
+  font-size:18px;
+
+  font-weight:700;
+}
+
+/* ===================================== */
+/* ===== DARK MODE ===== */
+/* ===================================== */
+
+.dark .detailsPage{
+
+  background:
+  linear-gradient(
+    135deg,
+    #020617,
+    #0f172a
+  );
+}
+
+.dark .detailsCard,
+
+.dark .reviewCard,
+
+.dark .relatedCard{
+
+  background:#1e293b;
+}
+
+.dark .detailsInfo h1,
+
+.dark .priceBox h2,
+
+.dark .reviewTitle,
+
+.dark .relatedTitle,
+
+.dark .reviewCard h3,
+
+.dark .relatedCard h3,
+
+.dark .extraInfo p{
+
+  color:white;
+}
+
+.dark .detailsDesc,
+
+.dark .reviewCard p,
+
+.dark .priceBox span,
+
+.dark .noRelated{
+
+  color:#cbd5e1;
+}
+
+.dark .extraInfo{
+
+  background:#0f172a;
+}
+
+.dark .pincodeBox input{
+
+  background:#0f172a;
+
+  color:white;
+
+  border:
+  2px solid #334155;
+}
+
+/* ===================================== */
+/* ===== TABLET ===== */
+/* ===================================== */
+
+@media(max-width:1100px){
+
+  .detailsCard{
+
+    flex-direction:column;
+  }
+
+  .detailsImageSection{
+
+    position:relative;
+
+    top:0;
+  }
+}
+
+/* ===================================== */
+/* ===== MOBILE ===== */
+/* ===================================== */
+
+@media(max-width:768px){
+
+  .detailsPage{
+
+    padding:20px 12px 40px;
+  }
+
+  .detailsCard{
+
+    padding:18px;
+  }
+
+  .detailsImage{
+
+    flex-direction:column;
+
+    min-height:auto;
+  }
+
+  .thumbnailColumn{
+
+    flex-direction:row;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+  }
+
+  .thumbnailColumn img{
+
+    width:70px;
+
+    height:70px;
+  }
+
+  .zoomImage{
+
+    height:280px;
+  }
+
+  .detailsInfo h1{
+
+    font-size:34px;
+  }
+
+  .priceBox h2{
+
+    font-size:40px;
+  }
+
+  .priceBox span{
+
+    font-size:24px;
+  }
+
+  .detailsOffer{
+
+    font-size:24px;
+  }
+
+  .buttonGroup{
+
+    flex-direction:column;
+  }
+
+  .pincodeBox{
+
+    flex-direction:column;
+  }
+
+  .pincodeBox button{
+
+    width:100%;
+  }
+
+  .relatedCard img{
+
+    height:240px;
+  }
+
+  .relatedTitle{
+
+    font-size:30px;
+  }
+}

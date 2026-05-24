@@ -1,0 +1,121 @@
+.successPage{
+
+  width:100%;
+
+  min-height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  background:
+  linear-gradient(
+    to right,
+    #f8fafc,
+    #eef2ff
+  );
+
+  padding:20px;
+}
+
+.successBox{
+
+  width:100%;
+
+  max-width:520px;
+
+  background:white;
+
+  padding:50px 35px;
+
+  border-radius:28px;
+
+  text-align:center;
+
+  box-shadow:
+  0 8px 24px rgba(0,0,0,0.12);
+}
+
+.successIcon{
+
+  font-size:90px;
+
+  margin-bottom:20px;
+}
+
+.successBox h1{
+
+  font-size:40px;
+
+  margin-bottom:16px;
+
+  color:#111827;
+}
+
+.successBox p{
+
+  font-size:18px;
+
+  color:#6b7280;
+
+  margin-bottom:30px;
+}
+
+.successBox button{
+
+  width:100%;
+
+  height:56px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:#22c55e;
+
+  color:white;
+
+  font-size:18px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.successBox button:hover{
+
+  background:#16a34a;
+
+  transform:translateY(-2px);
+}
+
+/* ===== DARK MODE ===== */
+
+.dark .successPage{
+
+  background:
+  linear-gradient(
+    to right,
+    #0f172a,
+    #1e293b
+  );
+}
+
+.dark .successBox{
+
+  background:#1e293b;
+}
+
+.dark .successBox h1{
+
+  color:white;
+}
+
+.dark .successBox p{
+
+  color:#cbd5e1;
+}

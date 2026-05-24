@@ -1,0 +1,601 @@
+/* src/pages/Admin.css */
+
+/* ===================================== */
+/* ===== ADMIN PAGE ===== */
+/* ===================================== */
+
+.adminPage{
+
+  width:100%;
+
+  min-height:100vh;
+
+  padding:120px 24px 50px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f8fafc,
+    #e2e8f0
+  );
+}
+
+/* ===================================== */
+/* ===== TOP ===== */
+/* ===================================== */
+
+.adminTop{
+
+  margin-bottom:34px;
+
+  text-align:center;
+}
+
+.adminTop h1{
+
+  font-size:52px;
+
+  color:#111827;
+
+  font-weight:900;
+
+  margin-bottom:10px;
+}
+
+.adminTop p{
+
+  color:#64748b;
+
+  font-size:18px;
+
+  font-weight:600;
+}
+
+/* ===================================== */
+/* ===== STATS ===== */
+/* ===================================== */
+
+.adminStats{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(3,1fr);
+
+  gap:22px;
+
+  margin-bottom:34px;
+}
+
+/* ===== CARD ===== */
+
+.adminCard{
+
+  background:white;
+
+  border-radius:28px;
+
+  padding:32px;
+
+  text-align:center;
+
+  box-shadow:
+  0 10px 24px rgba(0,0,0,0.08);
+
+  transition:0.3s;
+}
+
+.adminCard:hover{
+
+  transform:translateY(-6px);
+}
+
+.adminCard h2{
+
+  font-size:42px;
+
+  color:#2563eb;
+
+  margin-bottom:10px;
+
+  font-weight:900;
+}
+
+.adminCard p{
+
+  color:#64748b;
+
+  font-size:16px;
+
+  font-weight:700;
+}
+
+/* ===================================== */
+/* ===== ADD PRODUCT ===== */
+/* ===================================== */
+
+.addProductBox{
+
+  background:white;
+
+  border-radius:30px;
+
+  padding:34px;
+
+  margin-bottom:40px;
+
+  box-shadow:
+  0 10px 24px rgba(0,0,0,0.08);
+}
+
+.addProductBox h2{
+
+  font-size:34px;
+
+  margin-bottom:28px;
+
+  color:#111827;
+
+  font-weight:900;
+}
+
+/* ===================================== */
+/* ===== FORM ===== */
+/* ===================================== */
+
+.formGrid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:20px;
+
+  margin-bottom:28px;
+}
+
+.formGrid input{
+
+  width:100%;
+
+  height:58px;
+
+  border:
+  2px solid #e2e8f0;
+
+  border-radius:16px;
+
+  padding:0 18px;
+
+  font-size:15px;
+
+  font-weight:500;
+
+  outline:none;
+
+  transition:0.3s;
+}
+
+.formGrid input:focus{
+
+  border-color:#2563eb;
+
+  box-shadow:
+  0 0 0 4px rgba(37,99,235,0.12);
+}
+
+/* ===================================== */
+/* ===== ADD BUTTON ===== */
+/* ===================================== */
+
+.addBtn{
+
+  width:220px;
+
+  height:56px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
+
+  color:white;
+
+  font-size:16px;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+  box-shadow:
+  0 10px 24px rgba(37,99,235,0.25);
+}
+
+.addBtn:hover{
+
+  transform:translateY(-3px);
+}
+
+/* ===================================== */
+/* ===== PRODUCTS TABLE ===== */
+/* ===================================== */
+
+.productsTable{
+
+  background:white;
+
+  border-radius:30px;
+
+  padding:34px;
+
+  box-shadow:
+  0 10px 24px rgba(0,0,0,0.08);
+}
+
+.productsTable h2{
+
+  font-size:34px;
+
+  margin-bottom:28px;
+
+  color:#111827;
+
+  font-weight:900;
+}
+
+/* ===================================== */
+/* ===== ROW ===== */
+/* ===================================== */
+
+.tableRow{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  padding:18px;
+
+  border-radius:22px;
+
+  background:#f8fafc;
+
+  margin-bottom:18px;
+
+  transition:0.3s;
+}
+
+.tableRow:hover{
+
+  transform:translateY(-3px);
+
+  background:#eff6ff;
+}
+
+/* ===== IMAGE ===== */
+
+.tableRow img{
+
+  width:90px;
+
+  height:90px;
+
+  border-radius:18px;
+
+  object-fit:cover;
+
+  flex-shrink:0;
+}
+
+/* ===== INFO ===== */
+
+.tableInfo{
+
+  flex:1;
+}
+
+.tableInfo h3{
+
+  font-size:22px;
+
+  color:#111827;
+
+  margin-bottom:6px;
+
+  font-weight:800;
+}
+
+.tableInfo p{
+
+  color:#64748b;
+
+  margin-bottom:6px;
+
+  font-size:15px;
+
+  text-transform:capitalize;
+}
+
+.tableInfo span{
+
+  color:#2563eb;
+
+  font-size:22px;
+
+  font-weight:900;
+}
+
+/* ===================================== */
+/* ===== ACTIONS ===== */
+/* ===================================== */
+
+.adminActions{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+}
+
+/* ===================================== */
+/* ===== EDIT BUTTON ===== */
+/* ===================================== */
+
+.editBtn{
+
+  width:120px;
+
+  height:50px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
+
+  color:white;
+
+  font-size:15px;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+  box-shadow:
+  0 8px 18px
+  rgba(37,99,235,0.25);
+}
+
+.editBtn:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+  0 12px 22px
+  rgba(37,99,235,0.35);
+}
+
+/* ===================================== */
+/* ===== DELETE BUTTON ===== */
+/* ===================================== */
+
+.deleteBtn{
+
+  width:120px;
+
+  height:50px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:#ef4444;
+
+  color:white;
+
+  font-size:15px;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.deleteBtn:hover{
+
+  background:#dc2626;
+
+  transform:translateY(-2px);
+}
+
+/* ===================================== */
+/* ===== DARK MODE ===== */
+/* ===================================== */
+
+.dark .adminPage{
+
+  background:
+  linear-gradient(
+    135deg,
+    #020617,
+    #0f172a
+  );
+}
+
+.dark .adminCard,
+
+.dark .addProductBox,
+
+.dark .productsTable{
+
+  background:#111827;
+}
+
+.dark .adminTop h1,
+
+.dark .addProductBox h2,
+
+.dark .productsTable h2,
+
+.dark .tableInfo h3{
+
+  color:white;
+}
+
+.dark .adminTop p,
+
+.dark .tableInfo p,
+
+.dark .adminCard p{
+
+  color:#cbd5e1;
+}
+
+.dark .formGrid input{
+
+  background:#0f172a;
+
+  border:
+  2px solid #334155;
+
+  color:white;
+}
+
+.dark .tableRow{
+
+  background:#0f172a;
+}
+
+.dark .tableRow:hover{
+
+  background:#1e293b;
+}
+
+/* ===================================== */
+/* ===== TABLET ===== */
+/* ===================================== */
+
+@media(max-width:900px){
+
+  .adminStats{
+
+    grid-template-columns:
+    repeat(1,1fr);
+  }
+
+  .formGrid{
+
+    grid-template-columns:
+    repeat(1,1fr);
+  }
+
+  .tableRow{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+  }
+
+  .adminActions{
+
+    width:100%;
+
+    flex-direction:column;
+  }
+
+  .editBtn,
+
+  .deleteBtn{
+
+    width:100%;
+  }
+}
+
+/* ===================================== */
+/* ===== MOBILE ===== */
+/* ===================================== */
+
+@media(max-width:768px){
+
+  .adminPage{
+
+    padding:100px 14px 40px;
+  }
+
+  .adminTop h1{
+
+    font-size:38px;
+  }
+
+  .adminTop p{
+
+    font-size:15px;
+  }
+
+  .adminCard{
+
+    padding:24px;
+  }
+
+  .adminCard h2{
+
+    font-size:34px;
+  }
+
+  .addProductBox,
+
+  .productsTable{
+
+    padding:22px;
+  }
+
+  .addProductBox h2,
+
+  .productsTable h2{
+
+    font-size:26px;
+  }
+
+  .tableRow img{
+
+    width:100%;
+
+    height:220px;
+  }
+
+  .tableInfo h3{
+
+    font-size:20px;
+  }
+
+  .tableInfo span{
+
+    font-size:20px;
+  }
+
+  .addBtn{
+
+    width:100%;
+  }
+}
