@@ -1012,3 +1012,14 @@ body{
     height:200px;
   }
 }
+@media(max-width:768px){
+
+  .categoryContainer{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+  }
+}

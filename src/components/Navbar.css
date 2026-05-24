@@ -600,3 +600,26 @@
     font-size:12px;
   }
 }
+@media(max-width:768px){
+
+  .navbar{
+
+    padding:10px;
+
+    flex-wrap:wrap;
+  }
+
+  .searchBar{
+
+    width:100%;
+  }
+
+  .navLinks{
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    justify-content:center;
+  }
+}

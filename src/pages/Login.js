@@ -1,297 +1,111 @@
 // src/pages/Login.js
 
-import {
-  useState,
-  useContext
-} from "react";
+import { useState, useContext } from "react";
 
-import {
-  useNavigate,
-  useLocation
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import Swal from "sweetalert2";
-
-import {
-  StoreContext
-} from "../context/StoreContext";
-
-import {
-  registerUser,
-  loginUser
-} from "../api/authApi";
+import { StoreContext } from "../context/StoreContext";
 
 import "./Login.css";
 
 export default function Login() {
 
-  const navigate =
-    useNavigate();
+  const navigate = useNavigate();
 
-  const location =
-    useLocation();
+  const { setIsLoggedIn } = useContext(StoreContext);
 
-  const {
-    login
-  } = useContext(StoreContext);
+  const [isSignup, setIsSignup] = useState(false);
 
-  /* ===================================== */
-  /* ===== STATES ===== */
-  /* ===================================== */
+  const [showPassword, setShowPassword] = useState(false);
 
-  const [isSignup, setIsSignup] =
-    useState(false);
+  const [formData, setFormData] = useState({
 
-  const [name, setName] =
-    useState("");
+    name: "",
 
-  const [phone, setPhone] =
-    useState("");
+    email: "",
 
-  const [email, setEmail] =
-    useState("");
+    password: ""
+  });
 
-  const [password, setPassword] =
-    useState("");
+  const handleChange = (e) => {
 
-  const [showPassword, setShowPassword] =
-    useState(false);
+    setFormData({
 
-  const [error, setError] =
-    useState("");
+      ...formData,
 
-  /* ===================================== */
-  /* ===== LOGIN MESSAGE ===== */
-  /* ===================================== */
+      [e.target.name]: e.target.value
+    });
+  };
 
-  const showMessage =
-    location.search.includes("login");
+  const handleSubmit = (e) => {
 
-  /* ===================================== */
-  /* ===== SUBMIT ===== */
-  /* ===================================== */
+    e.preventDefault();
 
-  const handleSubmit =
-    async() => {
+    if (
 
-      try{
+      !formData.email ||
 
-        setError("");
+      !formData.password
+    ) {
 
-        /* ===================================== */
-        /* ===== VALIDATIONS ===== */
-        /* ===================================== */
+      alert("Please fill all fields");
 
-        if(!email || !password){
+      return;
+    }
 
-          Swal.fire({
+    /* ========================= */
+    /* ===== SIGNUP ===== */
+    /* ========================= */
 
-            icon:"warning",
+    if (isSignup) {
 
-            title:"Fill Email & Password ❌"
-          });
+      localStorage.setItem(
 
-          return;
-        }
+        "xephoraUser",
 
-        /* ===================================== */
-        /* ===== SIGNUP ===== */
-        /* ===================================== */
+        JSON.stringify(formData)
+      );
 
-        if(isSignup){
+      alert("Account Created Successfully 🎉");
 
-          if(
-            !name ||
-            !phone ||
-            !email ||
-            !password
-          ){
+      setIsLoggedIn(true);
 
-            Swal.fire({
+      navigate("/");
+    }
 
-              icon:"warning",
+    /* ========================= */
+    /* ===== LOGIN ===== */
+    /* ========================= */
 
-              title:"Please Fill All Fields ❌"
-            });
+    else {
 
-            return;
-          }
+      const savedUser = JSON.parse(
 
-          /* ===== PHONE VALIDATION ===== */
+        localStorage.getItem("xephoraUser")
+      );
 
-          if(phone.length !== 10){
+      if (
 
-            Swal.fire({
+        savedUser &&
 
-              icon:"warning",
+        savedUser.email === formData.email &&
 
-              title:"Enter Valid Mobile Number 📱"
-            });
+        savedUser.password === formData.password
+      ) {
 
-            return;
-          }
+        alert("Login Successful 🎉");
 
-          /* ===== PASSWORD VALIDATION ===== */
+        setIsLoggedIn(true);
 
-          if(password.length < 8){
-
-            Swal.fire({
-
-              icon:"warning",
-
-              title:
-              "Password must be 8 characters 🔒"
-            });
-
-            return;
-          }
-
-          /* ===== REGISTER ===== */
-
-          const data =
-            await registerUser({
-
-              name,
-
-              phone,
-
-              email,
-
-              password
-            });
-
-          /* ===== SAVE TOKEN ===== */
-
-          localStorage.setItem(
-
-            "token",
-
-            data.token
-          );
-
-          /* ===== SAVE USER ===== */
-
-          localStorage.setItem(
-
-            "user",
-
-            JSON.stringify(
-              data.user
-            )
-          );
-
-          /* ===== CONTEXT LOGIN ===== */
-
-          login(data.user);
-
-          /* ===== SUCCESS ===== */
-
-          Swal.fire({
-
-            icon:"success",
-
-            title:"Account Created 🎉",
-
-            text:"Signup Successful",
-
-            background:"#1e293b",
-
-            color:"#fff",
-
-            confirmButtonColor:"#ff9900"
-          });
-
-          navigate("/profile");
-
-          return;
-        }
-
-        /* ===================================== */
-        /* ===== LOGIN ===== */
-        /* ===================================== */
-
-        const data =
-          await loginUser({
-
-            email,
-
-            password
-          });
-
-        /* ===== SAVE TOKEN ===== */
-
-        localStorage.setItem(
-
-          "token",
-
-          data.token
-        );
-
-        /* ===== SAVE USER ===== */
-
-        localStorage.setItem(
-
-          "user",
-
-          JSON.stringify(
-            data.user
-          )
-        );
-
-        /* ===== CONTEXT LOGIN ===== */
-
-        login(data.user);
-
-        /* ===== SUCCESS ===== */
-
-        Swal.fire({
-
-          icon:"success",
-
-          title:"Login Successful 😎",
-
-          text:
-          `Welcome Back ${data.user.name}`,
-
-          background:"#1e293b",
-
-          color:"#fff",
-
-          confirmButtonColor:"#ff9900"
-        });
-
-        navigate("/profile");
-
+        navigate("/");
       }
 
-      catch(err){
+      else {
 
-        console.log(err);
-
-        const message =
-
-          err.response?.data?.message ||
-
-          "Something Went Wrong ❌";
-
-        setError(message);
-
-        Swal.fire({
-
-          icon:"error",
-
-          title:"Oops...",
-
-          text:message,
-
-          background:"#1e293b",
-
-          color:"#fff",
-
-          confirmButtonColor:"#ff9900"
-        });
+        alert("Oops! Something went wrong 😢");
       }
-    };
+    }
+  };
 
   return (
 
@@ -299,219 +113,160 @@ export default function Login() {
 
       <div className="loginBox">
 
-        {/* ===== TITLE ===== */}
-
         <h1>
 
           {
+
             isSignup
+
             ? "Create Account"
+
             : "Welcome Back"
           }
 
         </h1>
 
-        {/* ===== SUBTITLE ===== */}
-
-        <p className="loginText">
+        <p>
 
           {
+
             isSignup
+
             ? "Signup to continue shopping"
+
             : "Login to continue shopping"
           }
 
         </p>
 
-        {/* ===== LOGIN ALERT ===== */}
+        <form onSubmit={handleSubmit}>
 
-        {
+          {
 
-          showMessage && (
-
-            <div className="loginAlert">
-
-              Please Login to Continue
-
-            </div>
-          )
-        }
-
-        {/* ===== ERROR ===== */}
-
-        {
-
-          error && (
-
-            <div className="loginAlert">
-
-              {error}
-
-            </div>
-          )
-        }
-
-        {/* ===== NAME ===== */}
-
-        {
-
-          isSignup && (
-
-            <input
-              type="text"
-
-              placeholder="Enter Full Name"
-
-              value={name}
-
-              onChange={(e)=>
-                setName(
-                  e.target.value
-                )
-              }
-            />
-          )
-        }
-
-        {/* ===== PHONE ===== */}
-
-        {
-
-          isSignup && (
-
-            <div className="phoneInput">
-
-              <span className="flag">
-
-                +91
-
-              </span>
+            isSignup && (
 
               <input
-                type="number"
 
-                placeholder="Enter Phone Number"
+                type="text"
 
-                value={phone}
+                name="name"
 
-                onChange={(e)=>
-                  setPhone(
-                    e.target.value
-                  )
-                }
+                placeholder="Enter your name"
+
+                value={formData.name}
+
+                onChange={handleChange}
+
               />
-
-            </div>
-          )
-        }
-
-        {/* ===== EMAIL ===== */}
-
-        <input
-          type="email"
-
-          placeholder="Enter Email"
-
-          value={email}
-
-          onChange={(e)=>
-            setEmail(
-              e.target.value
             )
           }
-        />
-
-        {/* ===== PASSWORD ===== */}
-
-        <div className="passwordBox">
 
           <input
-            type={
-              showPassword
-              ? "text"
-              : "password"
-            }
 
-            placeholder="Enter Password"
+            type="email"
 
-            value={password}
+            name="email"
 
-            onChange={(e)=>
-              setPassword(
-                e.target.value
-              )
-            }
+            placeholder="Enter your email"
+
+            value={formData.email}
+
+            onChange={handleChange}
+
           />
 
-          <span
-            className="showPass"
+          <div className="passwordBox">
 
-            onClick={() =>
-              setShowPassword(
-                !showPassword
-              )
+            <input
+
+              type={
+
+                showPassword
+
+                ? "text"
+
+                : "password"
+              }
+
+              name="password"
+
+              placeholder="Enter your password"
+
+              value={formData.password}
+
+              onChange={handleChange}
+
+            />
+
+            <span
+
+              className="showBtn"
+
+              onClick={() =>
+
+                setShowPassword(
+
+                  !showPassword
+                )
+              }
+            >
+
+              {
+
+                showPassword
+
+                ? "🙈"
+
+                : "👁️"
+              }
+
+            </span>
+
+          </div>
+
+          <button type="submit">
+
+            {
+
+              isSignup
+
+              ? "Create Account"
+
+              : "Login"
             }
-          >
 
-            👁
+          </button>
 
-          </span>
+        </form>
 
-        </div>
-
-        {/* ===== PASSWORD NOTE ===== */}
-
-        {
-
-          isSignup && (
-
-            <p className="passwordNote">
-
-              Password must be at least
-              8 characters
-
-            </p>
-          )
-        }
-
-        {/* ===== BUTTON ===== */}
-
-        <button
-          className="loginBtn"
-
-          onClick={handleSubmit}
-        >
+        <div className="switchAuth">
 
           {
+
             isSignup
-            ? "Create Account"
-            : "Login"
-          }
 
-        </button>
-
-        {/* ===== TOGGLE ===== */}
-
-        <div className="signupText">
-
-          {
-            isSignup
             ? "Already have an account?"
+
             : "Don't have an account?"
           }
 
           <span
-            onClick={() => {
 
-              setIsSignup(!isSignup);
+            onClick={() =>
 
-              setError("");
-            }}
+              setIsSignup(
+
+                !isSignup
+              )
+            }
           >
 
             {
+
               isSignup
+
               ? " Login"
+
               : " Signup"
             }
 
